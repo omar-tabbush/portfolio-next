@@ -1,0 +1,16 @@
+node_modules
+.next
+out
+.vercel
+local.db
+local.db-journal
+local.db-wal
+local.db-shm
+.env
+.env.local
+.DS_Store
+*.log
+next-env.d.ts
+
+# Claude Code project-local state
+.claude/
