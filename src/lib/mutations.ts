@@ -38,6 +38,7 @@ export const projectInput = z.object({
   stack: z.string().min(1).max(500),
   tagsRaw: z.string().default(""),
   accent: z.enum(["lime", "amber", "blue", "red"]).default("lime"),
+  url: z.union([z.string().url(), z.literal("")]).default(""),
   order: z.number().int().default(0),
 });
 export type ProjectInput = z.infer<typeof projectInput>;
@@ -45,7 +46,7 @@ export async function createProject(data: ProjectInput) {
   const p = projectInput.parse(data);
   await db.insert(schema.projects).values({
     idx: p.idx, name: p.name, italic: p.italic, blurb: p.blurb,
-    year: p.year, stack: p.stack, accent: p.accent, order: p.order,
+    year: p.year, stack: p.stack, accent: p.accent, url: p.url, order: p.order,
     tags: JSON.stringify(parseList(p.tagsRaw)),
   });
 }
@@ -53,7 +54,7 @@ export async function updateProject(id: number, data: ProjectInput) {
   const p = projectInput.parse(data);
   await db.update(schema.projects).set({
     idx: p.idx, name: p.name, italic: p.italic, blurb: p.blurb,
-    year: p.year, stack: p.stack, accent: p.accent, order: p.order,
+    year: p.year, stack: p.stack, accent: p.accent, url: p.url, order: p.order,
     tags: JSON.stringify(parseList(p.tagsRaw)),
   }).where(eq(schema.projects.id, id));
 }

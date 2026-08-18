@@ -8,7 +8,7 @@ import {
 
 export type PortfolioContent = {
   skills: { id: number; letter: string; title: string; description: string }[];
-  projects: { id: number; idx: string; name: string; italic: string; blurb: string; year: string; stack: string; tags: string[]; accent: string }[];
+  projects: { id: number; idx: string; name: string; italic: string; blurb: string; year: string; stack: string; tags: string[]; accent: string; url: string }[];
   experience: { id: number; period: string; isCurrent: boolean; role: string; company: string; notes: string[] }[];
   stack: { id: number; category: string; items: string[] }[];
   contacts: { id: number; label: string; value: string; href: string }[];
@@ -49,7 +49,7 @@ export async function loadContent(): Promise<PortfolioContent> {
       skills: skillsRows.map((r) => ({ id: r.id, letter: r.letter, title: r.title, description: r.description })),
       projects: projectsRows.map((r) => ({
         id: r.id, idx: r.idx, name: r.name, italic: r.italic, blurb: r.blurb,
-        year: r.year, stack: r.stack, accent: r.accent,
+        year: r.year, stack: r.stack, accent: r.accent, url: r.url,
         tags: parseJSON<string[]>(r.tags, []),
       })),
       experience: expRows.map((r) => ({

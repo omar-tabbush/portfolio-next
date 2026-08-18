@@ -17,6 +17,11 @@ function ProjectPreview({ project, x, y }: { project: Project | null; x: number;
   const [c1, c2] = PALETTES[project.accent] ?? PALETTES.lime;
   return (
     <div className="proj-preview show" style={{ left: x, top: y }} aria-hidden>
+      {/* ponytail: free no-key screenshot service; swap for a stored image column if it rate-limits */}
+      {project.url ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={`https://s.wordpress.com/mshots/v1/${encodeURIComponent(project.url)}?w=520&h=360`} alt="" />
+      ) : (
       <svg viewBox="0 0 260 180" preserveAspectRatio="none">
         <defs>
           <pattern id={`p-${project.idx}`} width="8" height="8" patternUnits="userSpaceOnUse">
@@ -32,8 +37,15 @@ function ProjectPreview({ project, x, y }: { project: Project | null; x: number;
           {project.name.toUpperCase()} — PREVIEW
         </text>
       </svg>
+      )}
     </div>
   );
+}
+
+function Card({ url, children, ...rest }: { url: string; children: React.ReactNode } & React.HTMLAttributes<HTMLElement>) {
+  return url
+    ? <a className="reveal project" href={url} target="_blank" rel="noopener noreferrer" {...rest}>{children}</a>
+    : <article className="reveal project" {...rest}>{children}</article>;
 }
 
 export function ProjectsList({ projects }: { projects: Project[] }) {
@@ -43,9 +55,9 @@ export function ProjectsList({ projects }: { projects: Project[] }) {
     <>
       <div className="projects" onMouseMove={(e) => setPos({ x: e.clientX, y: e.clientY })}>
         {projects.map((p) => (
-          <article
+          <Card
             key={p.id}
-            className="reveal project"
+            url={p.url}
             onMouseEnter={() => setHover(p)}
             onMouseLeave={() => setHover(null)}
           >
@@ -72,7 +84,7 @@ export function ProjectsList({ projects }: { projects: Project[] }) {
                 transform: `translateY(-50%) translateX(${hover === p ? 0 : -6}px)`,
               }}
             >↗</div>
-          </article>
+          </Card>
         ))}
       </div>
       <ProjectPreview project={hover} x={pos.x} y={pos.y} />

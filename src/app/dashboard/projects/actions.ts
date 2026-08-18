@@ -27,6 +27,7 @@ export async function saveProjectAction(_prev: ProjectState | undefined, formDat
     stack: String(formData.get("stack") ?? "").trim(),
     tagsRaw: String(formData.get("tagsRaw") ?? ""),
     accent: (["lime", "amber", "blue", "red"].includes(accent) ? accent : "lime") as "lime" | "amber" | "blue" | "red",
+    url: String(formData.get("url") ?? "").trim(),
     order: Number(formData.get("order") ?? 0) || 0,
   };
   try {

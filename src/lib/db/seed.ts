@@ -8,16 +8,18 @@ import {
   DEFAULT_SKILLS, DEFAULT_PROJECTS, DEFAULT_EXPERIENCE,
   DEFAULT_STACK, DEFAULT_CONTACTS, DEFAULT_SETTINGS,
 } from "./defaults";
+import "dotenv/config";
 
 const url = process.env.TURSO_DATABASE_URL ?? "file:./local.db";
 const authToken = process.env.TURSO_AUTH_TOKEN;
+
 const db = drizzle(createClient({ url, authToken }), { schema });
 
 async function main() {
   console.log("[seed] starting…");
 
   await db.delete(schema.skills);
-  await db.delete(schema.projects);
+  // await db.delete(schema.projects);
   await db.delete(schema.experience);
   await db.delete(schema.stackCategories);
   await db.delete(schema.contacts);

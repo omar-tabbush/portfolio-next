@@ -16,3 +16,6 @@ next-env.d.ts
 .claude/
 
 .vercel
+
+# build artifacts
+tsconfig.tsbuildinfo

@@ -18,6 +18,7 @@ export const projects = sqliteTable("projects", {
   stack: text("stack").notNull(),
   tags: text("tags").notNull().default("[]"),
   accent: text("accent").notNull().default("lime"),
+  url: text("url").notNull().default(""),
   order: integer("order").notNull().default(0),
 });
 

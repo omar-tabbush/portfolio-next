@@ -373,6 +373,7 @@ html.no-motion .caret { animation: none; }
   transition: padding .35s var(--ease);
 }
 html.portfolio .project { cursor: none; }
+a.project { color: inherit; text-decoration: none; }
 .project:last-child { border-bottom: 1px solid var(--line-soft); }
 .project .idx { font-family: var(--mono); font-size: 11px; color: var(--fg-3); letter-spacing: 0.12em; }
 .project .name {
@@ -410,7 +411,7 @@ html.portfolio .project { cursor: none; }
   overflow: hidden;
 }
 .proj-preview.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-.proj-preview svg { width: 100%; height: 100%; display: block; }
+.proj-preview svg, .proj-preview img { width: 100%; height: 100%; display: block; object-fit: cover; }
 @media (max-width: 900px) {
   .project { grid-template-columns: 50px 1fr; }
   .project .blurb, .project .meta { grid-column: 2; }

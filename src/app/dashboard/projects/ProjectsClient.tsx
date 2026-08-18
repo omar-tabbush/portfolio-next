@@ -7,7 +7,7 @@ import { Flash } from "~/components/dashboard/Flash";
 
 type Row = {
   id: number; idx: string; name: string; italic: string; blurb: string;
-  year: string; stack: string; tags: string; accent: string; order: number;
+  year: string; stack: string; tags: string; accent: string; url: string; order: number;
 };
 type Draft = Partial<Row> & { tagsRaw?: string };
 
@@ -82,6 +82,10 @@ export function ProjectsClient({ rows }: { rows: Row[] }) {
         <div className="field">
           <label>Tags <span className="hint">(comma-separated)</span></label>
           <input type="text" name="tagsRaw" placeholder="Backend, Payments, Architecture" defaultValue={draft.tagsRaw ?? ""} key={`tags-${k}`} />
+        </div>
+        <div className="field">
+          <label>Link <span className="hint">(full URL, optional)</span></label>
+          <input type="url" name="url" placeholder="https://example.com" defaultValue={draft.url ?? ""} key={`url-${k}`} />
         </div>
         <div className="row">
           <div className="field" style={{ flex: "0 0 200px" }}>

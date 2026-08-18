@@ -17,37 +17,37 @@ export const DEFAULT_PROJECTS = [
     idx: "001", name: "Hawen", italic: " / Enterprise SaaS",
     blurb: "Architected the complete NestJS + TypeScript backend — 25+ domain modules covering users, vehicles, packages & payments. Migrated Stripe → Tap Payment with full webhook, refund & cancellation flow. Real-time analytics, rate limiting, Discord error alerts, Twilio SMS and email integrations.",
     year: "2024–25", stack: "NestJS · TypeScript · Prisma · PostgreSQL",
-    tags: ["Backend", "Payments", "Architecture"], accent: "lime",
+    tags: ["Backend", "Payments", "Architecture"], accent: "lime", url: "",
   },
   {
     idx: "002", name: "MyBooq", italic: ".ai",
     blurb: "AI-powered e-commerce platform. Built the Next.js shopfront and async backend services, integrating OpenAI GPT workflows for structured data extraction and automated product processing pipelines.",
     year: "2025", stack: "Next.js · Python · OpenAI",
-    tags: ["AI", "Next.js", "E-commerce"], accent: "amber",
+    tags: ["AI", "Next.js", "E-commerce"], accent: "amber", url: "",
   },
   {
     idx: "003", name: "Global Farms", italic: " / SaaS",
     blurb: "Multi-tenant ag-SaaS platform. Led incremental re-architecture of the backend and database layer — migrating to scalable patterns without breaking production.",
     year: "2024–Now", stack: "Node · PostgreSQL",
-    tags: ["SaaS", "Refactor", "Backend"], accent: "blue",
+    tags: ["SaaS", "Refactor", "Backend"], accent: "blue", url: "",
   },
   {
     idx: "004", name: "The Ready Hand", italic: "",
     blurb: "Led backend development and resolved runtime-critical production issues. Shipped structured API endpoints, improved performance, and kept the frontend/backend integration + deploy pipeline healthy.",
     year: "2024", stack: "Node · REST APIs",
-    tags: ["Backend", "APIs", "Performance"], accent: "red",
+    tags: ["Backend", "APIs", "Performance"], accent: "red", url: "",
   },
   {
     idx: "005", name: "VBOUT", italic: " / Marketing",
     blurb: "Email & landing-page builder at a marketing automation SaaS. Led Meta & LinkedIn integrations, hardened builder backend performance, shipped dashboard logic.",
     year: "2023–24", stack: "React · PHP (YII) · jQuery",
-    tags: ["SaaS", "Integrations", "Builder"], accent: "lime",
+    tags: ["SaaS", "Integrations", "Builder"], accent: "lime", url: "",
   },
   {
     idx: "006", name: "CryptoUniversity", italic: " / first ever",
     blurb: "My first project ever. Designed backend architecture for a crypto education platform, built REST APIs, integrated third-party services, and shipped production systems with a team of four.",
     year: "2023", stack: "Node · REST",
-    tags: ["First project", "Architecture"], accent: "amber",
+    tags: ["First project", "Architecture"], accent: "amber", url: "",
   },
 ];
 
