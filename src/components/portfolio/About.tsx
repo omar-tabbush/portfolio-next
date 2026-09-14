@@ -4,9 +4,8 @@ type Settings = Record<string, string>;
 
 export function About({ settings }: { settings: Settings }) {
   return (
-    <Section idx="01" title="About" titleEm="/ the developer" id="about">
+    <Section title="About" titleEm="/ the developer" id="about">
       <div className="about">
-        <div></div>
         <div className="body">
           <div className="reveal">{settings.aboutParagraph1}</div>
           <div className="reveal" data-delay="120" style={{ marginTop: 24 }}>

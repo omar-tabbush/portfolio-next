@@ -34,7 +34,7 @@ function ProjectPreview({ project, x, y }: { project: Project | null; x: number;
         <rect x="16" y="32" width="120" height="4" fill={c1} opacity="0.5" />
         <circle cx="230" cy="28" r="6" fill={c1} />
         <text x="16" y="162" fontFamily="monospace" fontSize="10" fill={c1} opacity="0.85" letterSpacing="1">
-          {project.name.toUpperCase()} — PREVIEW
+          {project.name.toUpperCase()}
         </text>
       </svg>
       )}

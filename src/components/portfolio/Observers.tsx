@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-const SCRAMBLE_CHARS = "!<>-_\\/[]{}—=+*^?#_0123456789ABCDEF";
+const SCRAMBLE_CHARS = "!<>-_\\/[]{}~=+*^?#_0123456789ABCDEF";
 
 function runScramble(el: HTMLElement, finalText: string) {
   const from = el.textContent ?? "";

@@ -13,7 +13,7 @@ export function Contact({
   const line1 = parts.slice(0, midIdx).join(" ");
   const line2 = parts.slice(midIdx).join(" ");
   return (
-    <Section idx="07" title="Let's talk" titleEm="/ make something" id="contact">
+    <Section title="Let's talk" titleEm="/ make something" id="contact">
       <div className="contact">
         <h3 className="contact big">
           <span className="reveal-mask"><span>{line1}</span></span><br />

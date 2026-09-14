@@ -5,9 +5,8 @@ export function BigFooter() {
         OMAR<span style={{ color: "var(--accent)" }}>.</span>
       </div>
       <div style={{ display: "grid", gap: 6, textAlign: "right" }}>
-        <span>© 2026 — Omar Tabboush</span>
+        <span>© 2026 Omar Tabboush</span>
         <span>Designed &amp; built from Beirut</span>
-        <span>v04 / last shipped · today</span>
       </div>
     </footer>
   );

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { loadContent } from "~/lib/content";
-import { Cursor } from "~/components/portfolio/Cursor";
 import { Observers } from "~/components/portfolio/Observers";
 import { HtmlAttrs } from "~/components/portfolio/HtmlAttrs";
 import { StatusBar } from "~/components/portfolio/StatusBar";
@@ -24,7 +23,7 @@ export const revalidate = 3600;
 export async function generateMetadata(): Promise<Metadata> {
   const content = await loadContent();
   const s = content.settings;
-  const title = s.seoTitle || "Omar Tabboush — Senior Full-Stack Software Developer";
+  const title = s.seoTitle || "Omar Tabboush, Senior Full-Stack Software Developer";
   const description = s.seoDescription || "Senior full-stack software developer in Beirut. Backend architecture, scalable systems, LLM integration.";
   const url = s.seoSiteUrl || "https://omartabboush.com";
   return {
@@ -62,7 +61,6 @@ export default async function HomePage() {
       <HtmlAttrs theme={settings.theme || "dark"} accent={settings.accent || "lime"} />
       <Observers />
       <StructuredData content={content} />
-      <Cursor />
       <Nav />
       <main>
         <Hero settings={settings} />

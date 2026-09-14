@@ -3,7 +3,7 @@ import type { PortfolioContent } from "~/lib/content";
 
 export function Experience({ experience }: { experience: PortfolioContent["experience"] }) {
   return (
-    <Section idx="05" title="Experience" titleEm="/ track record" id="experience">
+    <Section title="Experience" titleEm="/ track record" id="experience">
       <div className="timeline">
         {experience.map((e, i) => (
           <article key={e.id} className="reveal exp" data-delay={i * 60}>
