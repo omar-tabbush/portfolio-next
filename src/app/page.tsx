@@ -4,6 +4,7 @@ import { Observers } from "~/components/portfolio/Observers";
 import { HtmlAttrs } from "~/components/portfolio/HtmlAttrs";
 import { StatusBar } from "~/components/portfolio/StatusBar";
 import { Nav } from "~/components/portfolio/Nav";
+import { SectionIndex } from "~/components/portfolio/SectionIndex";
 import { Hero } from "~/components/portfolio/Hero";
 import { About } from "~/components/portfolio/About";
 import { Rescue } from "~/components/portfolio/Rescue";
@@ -64,13 +65,18 @@ export default async function HomePage() {
       <Nav />
       <main>
         <Hero settings={settings} />
-        <About settings={settings} />
-        <Rescue />
-        <Skills skills={content.skills} />
-        <Projects projects={content.projects} />
-        <Experience experience={content.experience} />
-        <Stack stack={content.stack} />
-        <Contact contacts={content.contacts} settings={settings} />
+        <div className="shell">
+          <SectionIndex />
+          <div className="catalog">
+            <About settings={settings} />
+            <Rescue />
+            <Skills skills={content.skills} />
+            <Projects projects={content.projects} />
+            <Experience experience={content.experience} />
+            <Stack stack={content.stack} />
+            <Contact contacts={content.contacts} settings={settings} />
+          </div>
+        </div>
       </main>
       <BigFooter />
       <div className="bottom-spacer" />
