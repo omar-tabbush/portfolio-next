@@ -16,9 +16,14 @@ export function SectionIndex() {
   useEffect(() => {
     const io = new IntersectionObserver(
       (entries) => {
-        for (const e of entries) if (e.isIntersecting) setActive(e.target.id);
+        for (const e of entries) {
+          const id = e.target.id;
+          if (e.isIntersecting) setActive(id);
+          else setActive((cur) => (cur === id ? null : cur));
+        }
       },
-      { rootMargin: "-45% 0px -54% 0px" },
+      // band taller than the gap between cards, so it never flickers to none mid-scroll
+      { rootMargin: "-45% 0px -45% 0px" },
     );
     for (const s of SECTIONS) {
       const el = document.getElementById(s.id);
