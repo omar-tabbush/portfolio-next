@@ -6,7 +6,6 @@ import { StatusBar } from "~/components/portfolio/StatusBar";
 import { Nav } from "~/components/portfolio/Nav";
 import { SectionIndex } from "~/components/portfolio/SectionIndex";
 import { Hero } from "~/components/portfolio/Hero";
-import { Statement } from "~/components/portfolio/Statement";
 import { About } from "~/components/portfolio/About";
 import { Rescue } from "~/components/portfolio/Rescue";
 import { Skills } from "~/components/portfolio/Skills";
@@ -69,7 +68,6 @@ export default async function HomePage() {
         <div className="shell">
           <SectionIndex />
           <div className="catalog">
-            <Statement />
             <About settings={settings} />
             <Rescue />
             <Skills skills={content.skills} />
