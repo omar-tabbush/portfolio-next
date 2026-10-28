@@ -6,6 +6,7 @@ export function Nav() {
     { href: "#work", label: "Work" },
     { href: "#experience", label: "Experience" },
     { href: "#stack", label: "Stack" },
+    { href: "#instagram", label: "Instagram" },
     { href: "#contact", label: "Contact" },
   ];
   return (

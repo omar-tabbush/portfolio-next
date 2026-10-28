@@ -12,6 +12,7 @@ import { Skills } from "~/components/portfolio/Skills";
 import { Projects } from "~/components/portfolio/Projects";
 import { Experience } from "~/components/portfolio/Experience";
 import { Stack } from "~/components/portfolio/Stack";
+import { Instagram } from "~/components/portfolio/Instagram";
 import { Contact } from "~/components/portfolio/Contact";
 import { BigFooter } from "~/components/portfolio/BigFooter";
 import { StructuredData } from "~/components/portfolio/StructuredData";
@@ -54,7 +55,8 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function HomePage() {
+export default async function HomePage({ searchParams }: { searchParams: Promise<{ ig?: string }> }) {
+  const igVariant = (await searchParams).ig === "featured" ? "featured" : "grid"; // TEMP-PREVIEW
   const content = await loadContent();
   const { settings } = content;
   return (
@@ -74,6 +76,7 @@ export default async function HomePage() {
             <Projects projects={content.projects} />
             <Experience experience={content.experience} />
             <Stack stack={content.stack} />
+            <Instagram variant={igVariant} />
             <Contact contacts={content.contacts} settings={settings} />
           </div>
         </div>
