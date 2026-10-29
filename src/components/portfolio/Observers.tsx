@@ -104,8 +104,9 @@ export function Observers() {
       const el = document.querySelector(href);
       if (!el) return;
       e.preventDefault();
-      const y = (el as HTMLElement).getBoundingClientRect().top + window.scrollY - 40;
-      window.scrollTo({ top: y, behavior: "smooth" });
+      // scrollIntoView honours each section's scroll-margin-top (clears the
+      // fixed nav and the sticky mobile index strip).
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
     };
     document.addEventListener("click", onAnchorClick);
 
