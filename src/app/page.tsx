@@ -55,8 +55,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function HomePage({ searchParams }: { searchParams: Promise<{ ig?: string }> }) {
-  const igVariant = (await searchParams).ig === "featured" ? "featured" : "grid"; // TEMP-PREVIEW
+export default async function HomePage() {
   const content = await loadContent();
   const { settings } = content;
   return (
@@ -76,7 +75,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
             <Projects projects={content.projects} />
             <Experience experience={content.experience} />
             <Stack stack={content.stack} />
-            <Instagram variant={igVariant} />
+            <Instagram />
             <Contact contacts={content.contacts} settings={settings} />
           </div>
         </div>

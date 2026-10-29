@@ -21,10 +21,11 @@ function StackIcon() {
 }
 
 /**
- * Posters are local images; Instagram's player only loads when someone asks
- * for it, so the section costs no third-party requests until then.
+ * Latest reel featured large, older posts as small tiles. Posters are local
+ * images; Instagram's player only loads when someone asks for it, so the
+ * section costs no third-party requests until then.
  */
-export function InstagramPosts({ variant = "grid" }: { variant?: "grid" | "featured" }) {
+export function InstagramPosts() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [open, setOpen] = useState<InstagramPost | null>(null);
 
@@ -50,51 +51,34 @@ export function InstagramPosts({ variant = "grid" }: { variant?: "grid" | "featu
         </a>
       </div>
 
-      {variant === "featured" ? (
-        <div className="ig-featured">
-          <PosterButton post={featured} onPlay={play} large />
-          <div className="ig-featured-copy">
-            <span className="ig-kind">Latest reel · {featured.meta}</span>
-            <h3 className="ig-featured-title">{featured.title}</h3>
-            {featured.points && (
-              <ol className="ig-points">
-                {featured.points.map((pt) => <li key={pt}>{pt}</li>)}
-              </ol>
-            )}
-            <div className="ig-actions">
-              <button type="button" className="ig-btn primary" onClick={() => play(featured)}>
-                <PlayIcon /> Watch here
-              </button>
-              <a className="ig-btn" href={postUrl(featured)} target="_blank" rel="noopener noreferrer">
-                Open on Instagram <span aria-hidden>↗</span>
-              </a>
-            </div>
-            {rest.length > 0 && (
-              <div className="ig-more">
-                <span className="ig-kind">More posts</span>
-                <div className="ig-more-row">
-                  {rest.map((p) => <PosterButton key={p.code} post={p} onPlay={play} small />)}
-                </div>
-              </div>
-            )}
+      <div className="ig-featured">
+        <PosterButton post={featured} onPlay={play} large />
+        <div className="ig-featured-copy">
+          <span className="ig-kind">Latest reel · {featured.meta}</span>
+          <h3 className="ig-featured-title">{featured.title}</h3>
+          {featured.points && (
+            <ol className="ig-points">
+              {featured.points.map((pt) => <li key={pt}>{pt}</li>)}
+            </ol>
+          )}
+          <div className="ig-actions">
+            <button type="button" className="ig-btn primary" onClick={() => play(featured)}>
+              <PlayIcon /> Watch here
+            </button>
+            <a className="ig-btn" href={postUrl(featured)} target="_blank" rel="noopener noreferrer">
+              Open on Instagram <span aria-hidden>↗</span>
+            </a>
           </div>
-        </div>
-      ) : (
-        <div className="ig-grid">
-          {INSTAGRAM_POSTS.map((p) => (
-            <article key={p.code} className="ig-card">
-              <PosterButton post={p} onPlay={play} />
-              <div className="ig-card-body">
-                <h3 className="ig-card-title">{p.title}</h3>
-                <div className="ig-card-meta">
-                  <span>{p.kind === "reel" ? "Reel" : "Carousel"} · {p.meta}</span>
-                  <a href={postUrl(p)} target="_blank" rel="noopener noreferrer">Instagram ↗</a>
-                </div>
+          {rest.length > 0 && (
+            <div className="ig-more">
+              <span className="ig-kind">More posts</span>
+              <div className="ig-more-row">
+                {rest.map((p) => <PosterButton key={p.code} post={p} onPlay={play} small />)}
               </div>
-            </article>
-          ))}
+            </div>
+          )}
         </div>
-      )}
+      </div>
 
       <dialog ref={dialogRef} className="ig-modal" onClose={() => setOpen(null)} onClick={(e) => { if (e.target === dialogRef.current) close(); }}>
         {open && (
